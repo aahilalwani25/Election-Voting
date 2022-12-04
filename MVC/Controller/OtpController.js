@@ -1,7 +1,7 @@
-const {firebase} = require('@react-native-firebase/auth');
+import auth from '@react-native-firebase/auth';
 const OTP = require('../Model/Otp');
 
-class OtpController {
+export class OtpController {
   constructor() {
     this.otp = new OTP.Otp();
   }
@@ -33,7 +33,7 @@ class OtpController {
   }
 
   onAuthStateChanged() {
-    this.unsubscribe = firebase.auth().onAuthStateChanged(user => {
+    this.unsubscribe = auth().onAuthStateChanged(user => {
       if (user) {
         this.otp.user = user.toJSON();
       }
@@ -56,4 +56,3 @@ class OtpController {
   };
 }
 
-module.exports={OtpController};
