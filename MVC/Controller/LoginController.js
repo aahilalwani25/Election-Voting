@@ -5,7 +5,7 @@ const ip = require('../../API/NetworkConfig');
 export class LoginController {
   async getLogin(cnic, password) {
     let request = await axios.get(
-      `${ip.address}/api/login/${cnic}/${password}`,
+      `${ip.address}/api/users/${cnic}/${password}`,
     );
 
     let response = request.data;
