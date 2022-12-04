@@ -26,6 +26,7 @@ export class SignUpController {
         let request= await axios.post(`http://${ip.address}/api/users`,{
             cnic:user.cnic,
             name:user.name,
+            email:user.email,
             dob:user.dob,
             password:user.password,
             gender:user.gender,
