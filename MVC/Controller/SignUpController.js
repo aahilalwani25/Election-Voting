@@ -19,6 +19,6 @@ class SignUpController {
 }
 
 //format:mm/dd/yyyy
-console.log(new SignUpController().calculateAge('02/25/2001'));
+//console.log(new SignUpController().calculateAge('02/25/2001'));
 
 module.exports={SignUpController};
