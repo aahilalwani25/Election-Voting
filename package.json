@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-firebase/auth": "^16.4.6",
     "ip": "^1.1.8",
     "mssql": "^9.0.1",
     "mysqli": "^3.1.4",
