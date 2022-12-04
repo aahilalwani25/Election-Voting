@@ -27,9 +27,19 @@ app.post("/api/users/signup/",(req,res)=>{
 
 
 //for login
-app.get("/api/users",(req,res)=>{
+app.get("/api/users/:cnic/:password",(req,res)=>{
 
     //fetching cnic and password
+    const {username, password} = req.params;
+
+    
+    config.query(
+      `select * from user where u_name='${username}' and password='${password}'`,
+      (err, row) => {
+        if (err) console.log(err);
+        res.send(row);
+      },
+    );
 
 })
 

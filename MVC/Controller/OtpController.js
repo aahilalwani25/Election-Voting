@@ -43,9 +43,7 @@ class OtpController {
 
   //otp as an object passed
   sendCode(otp){
-    
     otp.message= 'Sending code ...';
-
     auth()
       .signInWithPhoneNumber(otp.phoneNumber)
       .then(confirmResult =>{
