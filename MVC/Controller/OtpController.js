@@ -57,3 +57,5 @@ class OtpController {
         });
   };
 }
+
+module.exports={OtpController};
