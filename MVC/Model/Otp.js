@@ -7,8 +7,4 @@ export class Otp {
     this.confirmResult = null;
     this.unsubscribe = null;
   }
-
-  setPhoneNumber(number) {
-    this.phoneNumber = `+92 ${number}`;
-  }
 }
