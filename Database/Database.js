@@ -1,11 +1,14 @@
 const connection = require('../Database/connection');
 
 class Database {
-  con = new connection.Connection().getConnection();
-  flag=false;
+  // con = new connection.Connection().getConnection();
+  // flag=false;
 
   constructor() {
-    con.connect(err => {
+    this.con = new connection.Connection().getConnection();
+    this.flag = false;
+    this.fetchRows=[];
+    this.con.connect(err => {
       if (err) console.log(err);
       console.log('connected');
     });
@@ -31,13 +34,16 @@ class Database {
   }
   
   //app.get
-  selectQuery(query) {
-    let fetchRows=null;
+  selectQuery(query, req,res) {
+    //let fetchRows=null;
     this.con.query(query, (err, rows, fields) => {
       if (err) console.log(err);
-      fetchRows=rows;
+      res.send(rows)
+      //copy row elements
+      rows.map((data)=>this.fetchRows.push(data));
     });
-    return fetchRows;
+    //console.log(this.fetchRows);
+    return this.fetchRows;
   }
 }
 

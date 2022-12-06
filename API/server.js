@@ -5,13 +5,11 @@ const Database = require('../Database/Database');
 const network= require("./NetworkConfig");
 const app=express();
 
-let con=new connection.Connection();
+let con=new connection.Connection().getConnection();
 let db=new Database.Database();
 
 con.getConnection().connect((err)=>{
     if(err) console.log(err);
-
-    console.log("connected");
 });
 
 app.use(bodyParser.json());
@@ -30,20 +28,14 @@ app.post("/api/users/signup/",(req,res)=>{
 app.get("/api/users/:cnic/:password",(req,res)=>{
 
     //fetching cnic and password
-    const {username, password} = req.params;
-
-    
-    config.query(
-      `select * from user where u_name='${username}' and password='${password}'`,
-      (err, row) => {
+    const {cnic, password} = req.params;
+    // let data= db.selectQuery(`select u_name,password from user where u_name='${cnic}' and password='${password}'`, req,res);
+    con
+      .query(`select u_name,password from user where u_name='${cnic}' and password='${password}'`,(err,rows,fields)=>{
         if (err) console.log(err);
-        res.send(row);
-      },
-    );
-
-})
-
-
+        res.send(rows);
+      });
+});
 
 //listen port
 app.listen(3000,()=>{
