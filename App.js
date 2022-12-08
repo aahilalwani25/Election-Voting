@@ -1,27 +1,21 @@
 import React from "react";
-import { View, TextInput} from "react-native";
+import { View, TextInput, Button, TouchableOpacity, Text} from "react-native";
 import ErrorGenerator from "./MVC/View/ErrrorGenerator";
 
+//export-> access modifier (public)
 export default class App extends React.Component{
+  
 
-  constructor({...props}) {
-    super(...props);
-    this.state={
-      phnLen:0,
-      phn:null
-    }
-  }
+  //div  ->  View  <div style=""/>
+  //input  ->  TextInput
+  //button  ->  Button/TouchableOpacity
+  //img   ->  ImageView
   render(){
-    return (
-      <View>
-        <TextInput
-          onChangeText={text => {
-            this.setState({phn: text, phnLen: text.length});
-          }}
-        />
-
-        {this.state.phnLen < 11 && <ErrorGenerator id={1} />}
+    return(
+      <View style={{backgroundColor:'white',height:'100%'}}>
+        
       </View>
     );
   }
+
 }
