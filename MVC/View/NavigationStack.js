@@ -8,7 +8,7 @@ export default function NavigationStack(){
     return(
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="" component={""}/>
+                
             </Stack.Navigator>
         </NavigationContainer>
     )
